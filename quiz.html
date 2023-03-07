@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz</title>
+  <!-- Font awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Taiwind & Daisy UI CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.1/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- custom CSS -->
+  <link rel="stylesheet" href="quiz.css">
+</head>
+
+<body>
+
+  <section class="main-container h-screen flex items-center justify-center">
+
+    <!-- Quiz Home Container -->
+    <div
+      class="quiz-home-container shadow-lg rounded-3xl h-5/6 bg-red-100 w-9/12 md:w-7/12 lg:w-3/12 space-y-4 relative">
+      <img src="./assets/img/Question.svg" class="h-2/5 w-full" alt="">
+      <div class="quiz-home-innertext space-y-4 px-4">
+        <h2 class="font-bold text-xl">Quiz app with fixed time</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. A earum dolore esse quo fuga iure totam quasi
+          dignissimos! Dolorum magni iste ducimus, ullam laboriosam inventore fugit officiis culpa porro. Consequuntur.
+        </p>
+        <h2 class="font-bold text-xl">Quiz app with fixed qi-time</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt, animi.</p>
+      </div>
+      <button
+        class="rounded-tl rounded-br-3xl bg-orange-500 hover:bg-blue-500 transition p-4 absolute right-0 bottom-0 font-bold text-xl text-slate-50"
+        id="start-quiz-button">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Rules Container -->
+    <div
+      class="quiz-rules-container shadow-lg rounded-3xl h-5/6 bg-red-100 w-9/12 md:w-7/12 lg:w-3/12 space-y-4 relative  hidden">
+      <h2 class="border-b-2 border-b-red-200 py-3 font-bold text-2xl text-center">Some rules of this Quiz</h2>
+      <div class="quiz-rules-inner px-6">
+        <ul class="space-y-9">
+          <li class="text-lg">01. You will have only 15 seconds per each question.</li>
+          <li class="text-lg">02. Once you select your answer, it can't be undone.</li>
+          <li class="text-lg">03. You can't select any option once time goes off.</li>
+          <li class="text-lg">04. You can't exit from the Quiz while you're playing.</li>
+          <li class="text-lg">05. You'll get points on the basis of your correct answers</li>
+        </ul>
+      </div>
+      <button
+        class="rounded-tr rounded-bl-3xl bg-orange-500 hover:bg-blue-500 transition p-4 absolute left-0 bottom-0 font-bold text-xl text-slate-50"
+        id="exit-quiz-btn">Exit
+        Quiz</button>
+      <button
+        class="rounded-tl rounded-br-3xl bg-orange-500 hover:bg-blue-500 transition p-4 absolute right-0 bottom-0 font-bold text-xl text-slate-50"
+        id="continue-quiz-btn">Continue
+        Quiz</button>
+    </div>
+
+    <!-- Dynamic quiz section -->
+    <div
+      class="dynamic-quiz-container shadow-lg rounded-3xl h-auto lg:h-5/6 bg-red-100 w-9/12 md:w-7/12 lg:w-3/12 space-y-4 relative hidden">
+      <div class="flex flex-col justify-between h-full">
+        <div class="dynamic-quiz-body">
+
+          <div class="dynamic-quiz-heading border-b-2 border-b-red-200 flex justify-between p-3 relative">
+            <div>
+              <h2 class="font-bold text-xl">Start Exam</h2>
+            </div>
+            <div class="-space-x-2 relative">
+              <span class="bg-slate-300 pl-3 pr-20 py-2 rounded-lg">Time Left</span>
+              <span
+                class="px-3 py-1 bg-blue-300 rounded-lg absolute -top-1 right-3 dynamic-quiz-heading-counter">22</span>
+            </div>
+            <div class="absolute top-full left-0 bg-sky-500 w-0 h-1 dynamic-quiz-heading-horizontal-bar"></div>
+          </div>
+
+          <div class="dynamic-quiz-option p-6 space-y-3">
+            <h2 class="font-bold text-4xl"><span class="dynamic-question-numbering">00</span> <span
+                class="dynamic-question">??</span></h2>
+            <ul class="space-y-4 option_list">
+              <li
+                class="p-4 bg-orange-200 font-semibold rounded-md select-none cursor-pointer option-1 option relative">
+              </li>
+              <li
+                class="p-4 bg-orange-200 font-semibold rounded-md select-none cursor-pointer option-2 option relative">
+              </li>
+              <li
+                class="p-4 bg-orange-200 font-semibold rounded-md select-none cursor-pointer option-3 option relative">
+              </li>
+              <li
+                class="p-4 bg-orange-200 font-semibold rounded-md select-none cursor-pointer option-4 option relative">
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="dynamic-quiz-footer rounded-b-3xl font-semibold px-5 py-4 border-t-2 border-t-red-200">
+          <div><span class="quiz-footer-numering">5</span> of <span class="quiz-footer-totalQuiz">5</sp>
+          </div>
+        </div>
+      </div>
+      <button
+        class="rounded-tl rounded-br-3xl bg-orange-500 hover:bg-blue-500 transition p-4 absolute right-0 bottom-0 font-bold text-xl text-slate-50 hidden"
+        id="next-quiz-btn">Next
+        Quiz</button>
+    </div>
+
+    <!-- Quiz result container -->
+    <div
+      class="dynamic-quiz-result-container shadow-lg rounded-3xl h-auto lg:h-5/6 bg-red-100 w-9/12 md:w-7/12 lg:w-3/12 space-y-4 px-3 hidden">
+      <div class="flex flex-col justify-between h-full">
+        <div class="dynamic-quiz-img">
+          <img src="./assets/img/winner.svg" alt="">
+        </div>
+        <div class="dynamic-quiz-footer rounded-b-3xl font-semibold text-xl text-slate-600 h-2/6 text-center space-y-7">
+          <div>
+            <h2>You have finished this exam!</h2>
+            <p>Carry on! You got <span class="text-slate-900 font-bold" id="resultPageValidAns">3</span> out of <span
+                class="text-slate-900 font-bold" id="resultPageTotalAns">5</span></p>
+          </div>
+          <div>
+            <button class="rounded-lg bg-orange-500 hover:bg-blue-500 transition p-4 text-slate-50"
+              id="replay-quiz-btn">Replay</button>
+            <button class="rounded-lg bg-orange-500 hover:bg-blue-500 transition p-4 text-slate-50"
+              id="quit-quiz-btn">Quit Quiz</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- JS -->
+  <script src="./js/question.js"></script>
+  <script src="./js/quiz.js"></script>
+</body>
+
+</html>
